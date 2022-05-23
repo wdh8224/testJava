@@ -5,6 +5,7 @@ import com.example.demo.dto.GroupDto;
 import com.example.demo.mapper.GroupMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -23,6 +24,10 @@ public class GroupService {
 
     public GroupDto getGroupInfo(int id) {
         return groupMapper.getGroup(id);
+    }
+
+    public GroupDto test() {
+        return GroupDto.of();
     }
 
 }
