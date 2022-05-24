@@ -12,8 +12,11 @@
         select * from member where name like CONCAT('%', #{name}, '%');
     </select>
 
-    <select id="insertMemberInfo" resultType="map">
-
-    </select>
+    <insert id="createMember" parameterType="MemberDto" useGeneratedKeys="true" keyProperty="memberId">
+        <selectKey keyProperty="memberId" resultType="integer" order="BEFORE">
+            SELECT MAX(member_id)+1 FROM member
+        </selectKey>
+        insert into member(name, phone_number, address, student_code) values (#{name}, #{phoneNumber}, #{address}, #{studentCode})
+    </insert>
 
 </mapper>

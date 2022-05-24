@@ -3,9 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.dto.MemberDto;
 import com.example.demo.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,8 +15,10 @@ public class MemberController {
     private final MemberService memberService;
 
     @ResponseBody
-    @GetMapping("/members")
-    public List<MemberDto> create() {
-        return memberService.getMemberList();
+    @PostMapping(value = "/member/save")
+    public int create(@RequestBody MemberDto memberDto) {
+        return memberService.createMember(memberDto);
     }
+
+
 }

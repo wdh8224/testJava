@@ -5,11 +5,11 @@
 <mapper namespace="com.example.demo.mapper.GroupMapper">
 
     <select id="getGroupList" resultType="GroupDto">
-        select groups_id , member_id as memberId from groups
+        SELECT t.groups_id, t.member_id FROM test.`groups` t
     </select>
 
-    <select id="getGroupInfo">
-        select groups_id, member_id from groups where groups_id = #{ groupId }
+    <select id="getGroupInfo" resultType="GroupDto">
+        select t.groups_id, t.member_id from  test.`groups` t where t.groups_id = #{ groupId }
     </select>
 
 </mapper>

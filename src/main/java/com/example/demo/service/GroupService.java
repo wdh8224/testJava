@@ -22,7 +22,7 @@ public class GroupService {
     }
 
     public GroupDto getGroupInfo(int id) {
-        return groupMapper.getGroup(id);
+        return groupMapper.getGroupInfo(id);
     }
 
 }

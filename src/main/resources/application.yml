@@ -17,4 +17,9 @@ spring:
 mybatis:
     type-aliases-package: com.example.demo.dto
     mapper-locations: classpath:mappers/*.xml
+    configuration:
+        map-underscore-to-camel-case: true
 
+logging:
+    level:
+        com.example.demo.mapper: debug
